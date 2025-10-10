@@ -28,7 +28,7 @@ class Lod:
         if poskozeni > 0:
             zprava = f'{self._jmeno} utrpel/a zasah o sile {poskozeni} hp trupu'
             self._trup -= poskozeni
-            "self._trup -= poskozeniself._trup = self._trup - poskozeni"
+            "self._trup = self._trup - poskozeni"
         else:
             zprava = f'{self._jmeno} neutrpela poskozeni'
         self.nastav_zpravu(zprava)
