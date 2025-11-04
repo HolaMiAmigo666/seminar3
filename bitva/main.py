@@ -60,9 +60,9 @@ class Sektor:
 
 
 if __name__ == '__main__':
-    k = kostka.Kostka(10)
-    lod1 = lod.Lod('Mnau', 100, 20, 18, k)
-    lod2 = lod.Lod('Haf', 100, 15, 22, k)
+    k = Kostka(30)
+    lod1 = Lod('Mnau', 100, 20, 18, k)
+    lod2 = Lod('Haf', 100, 15, 22, k)
 
     smetanova_draha = Sektor(lod1, lod2, k)
     smetanova_draha.souboj()
