@@ -5,6 +5,7 @@ import random
 class Kostka:
     def __init__(self, pocet_sten):
         self.__pocet_sten = pocet_sten
+        
     def __str__(self):
         return f'Toto je kostka s {self.__pocet_sten} stranami.'
 
