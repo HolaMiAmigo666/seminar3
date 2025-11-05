@@ -4,23 +4,28 @@ from lod import Lod
 
 class Sektor:
 
-    def __init__(self, lod_1, lod_2, kostka):
+    def __init__(self, jmeno, lod_1, lod_2, kostka):
+        self._jmeno = jmeno
         self._lod_1 = lod_1
         self._lod_2 = lod_2
         self._kostka = kostka
     
     def _vypis_lod(self, lod):
         print(lod)
-        print(f'Trup: {lod._trup}')
+        print(f'Trup: {lod.graficky_trup(lod._trup, lod._max_trup)}')
+    
 
     def souboj(self):
         import random
-        print('Vitej v sektoru Smetanová dráha!')
-        print('======================')
+        print(f'Vitej v sektoru {self._jmeno}!')
+        print(f'================={len(self._jmeno)*"="}')
         print()
         print(f'Dnes se stretnou {self._lod_1} a {self._lod_2}.')
         print('Zhajit souboj...')
         input()
+
+        if random.randint(0, 1):
+            self._lod_1, self._lod_2 = self._lod_2, self._lod_1
 
         while self._lod_1.je_operacni() and self._lod_2.je_operacni():
             self._lod_1.utoc(self._lod_2)
@@ -52,7 +57,7 @@ class Sektor:
     
     def _vykresli(self):
         self._vycisti()
-        print('============== Sektor Smetanová dráha ================')
+        print(f'============== Sektor {self._jmeno} ================')
         print('Lode:\n')
         self._vypis_lod(self._lod_1)
         self._vypis_lod(self._lod_2)
@@ -61,8 +66,9 @@ class Sektor:
 
 if __name__ == '__main__':
     k = Kostka(30)
-    lod1 = Lod('Mnau', 100, 20, 18, k)
-    lod2 = Lod('Haf', 100, 15, 22, k)
-
-    smetanova_draha = Sektor(lod1, lod2, k)
+    l = Kostka(31)
+    lod1 = Lod('Mnau', 100, 50, 22, l)
+    lod2 = Lod('Haf', 100, 50, 20, k)
+    smetanova_draha = Sektor("Smetanova draha", lod1, lod2, k)
+    m = Sektor("muchomurka", lod1, lod2, k)
     smetanova_draha.souboj()
