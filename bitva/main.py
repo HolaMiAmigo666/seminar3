@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from kostka import Kostka
-from lod import Lod
+from lod import Lod, stihac, Korveta
 
 class Sektor:
 
@@ -13,6 +13,8 @@ class Sektor:
     def _vypis_lod(self, lod):
         print(lod)
         print(f'Trup: {lod.graficky_trup(lod._trup, lod._max_trup)}')
+        if isinstance(lod, stihac):
+            print(f'Energie: {lod.graficka_energie()}')
     
 
     def souboj(self):
@@ -29,14 +31,14 @@ class Sektor:
 
         while self._lod_1.je_operacni() and self._lod_2.je_operacni():
             self._lod_1.utoc(self._lod_2)
-            self._vykresli()
+            self._vykreslit()
             self._vypis_zpravu(self._lod_1.vypis_zpravu())
             self._vypis_zpravu(self._lod_2.vypis_zpravu())
             self._vypis_lod(self._lod_2)
 
             if self._lod_2.je_operacni():
                 self._lod_2.utoc(self._lod_1)
-                self._vykresli()
+                self._vykreslit()
                 self._vypis_zpravu(self._lod_2.vypis_zpravu())
                 self._vypis_zpravu(self._lod_1.vypis_zpravu())
                 self._vypis_lod(self._lod_1)
@@ -55,7 +57,7 @@ class Sektor:
         else:
             _subprocess.call(['clear'])
     
-    def _vykresli(self):
+    def _vykreslit(self):
         self._vycisti()
         print(f'============== Sektor {self._jmeno} ================')
         print('Lode:\n')
@@ -67,8 +69,10 @@ class Sektor:
 if __name__ == '__main__':
     k = Kostka(30)
     l = Kostka(31)
+
     lod1 = Lod('Mnau', 100, 50, 22, l)
-    lod2 = Lod('Haf', 100, 50, 20, k)
+    lod2 = stihac('Haf', 100, 40, 20, l, 60, 40)
+    
     smetanova_draha = Sektor("Smetanova draha", lod1, lod2, k)
     m = Sektor("muchomurka", lod1, lod2, k)
     smetanova_draha.souboj()
