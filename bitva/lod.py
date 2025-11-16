@@ -54,7 +54,7 @@ class Lod:
     def vypis_zpravu(self):
         return self._zprava
 
-class stihac(Lod):
+class Stihac(Lod):
     
     def __init__(self, jmeno, trup, utok, stit, kostka, energie, laserovy_utok):
         super().__init__(jmeno, trup, utok, stit, kostka)
