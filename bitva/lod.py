@@ -76,7 +76,7 @@ class Stihac(Lod):
     def graficka_energie(self):
         return self.graficky_ukazatel(self._energie, self._max_energie)
 
- class Korveta(Lod):
+class Korveta(Lod):
     
     def bran_se(self, uder):
         poskozeni = uder - (self._stit + self._kostka.hod() + 2)
