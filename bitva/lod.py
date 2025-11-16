@@ -43,7 +43,7 @@ class Lod:
         return f'[{"#"*pocet}{" "*(celkem-pocet)}]'
 
     def graficky_trup(self, trup, max_trup):
-        return self.graficky_trup(self._trup, self._max_trup)
+        return self.graficky_ukazatel(self._trup, self._max_trup)
 
     def je_operacni(self):
         return self._trup > 0
