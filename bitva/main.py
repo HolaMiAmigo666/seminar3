@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from kostka import Kostka
-from lod import Lod, stihac, Korveta
+from lod import Lod, Stihac, Korveta
 
 class Sektor:
 
@@ -13,7 +13,7 @@ class Sektor:
     def _vypis_lod(self, lod):
         print(lod)
         print(f'Trup: {lod.graficky_trup(lod._trup, lod._max_trup)}')
-        if isinstance(lod, stihac):
+        if isinstance(lod, Stihac):
             print(f'Energie: {lod.graficka_energie()}')
     
 
@@ -71,7 +71,7 @@ if __name__ == '__main__':
     l = Kostka(31)
 
     lod1 = Lod('Mnau', 100, 50, 22, l)
-    lod2 = stihac('Haf', 100, 40, 20, l, 60, 40)
+    lod2 = Stihac('Haf', 100, 40, 20, l, 60, 40)
     
     smetanova_draha = Sektor("Smetanova draha", lod1, lod2, k)
     m = Sektor("muchomurka", lod1, lod2, k)

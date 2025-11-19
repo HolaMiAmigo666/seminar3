@@ -43,7 +43,7 @@ class Lod:
         return f'[{"#"*pocet}{" "*(celkem-pocet)}]'
 
     def graficky_trup(self, trup, max_trup):
-        return self.graficky_trup(self._trup, self._max_trup)
+        return self.graficky_ukazatel(self._trup, self._max_trup)
 
     def je_operacni(self):
         return self._trup > 0
@@ -54,7 +54,7 @@ class Lod:
     def vypis_zpravu(self):
         return self._zprava
 
-class stihac(Lod):
+class Stihac(Lod):
     
     def __init__(self, jmeno, trup, utok, stit, kostka, energie, laserovy_utok):
         super().__init__(jmeno, trup, utok, stit, kostka)
@@ -76,7 +76,7 @@ class stihac(Lod):
     def graficka_energie(self):
         return self.graficky_ukazatel(self._energie, self._max_energie)
 
- class Korveta(Lod):
+class Korveta(Lod):
     
     def bran_se(self, uder):
         poskozeni = uder - (self._stit + self._kostka.hod() + 2)
