@@ -23,8 +23,8 @@ def process_args():
 
 if __name__ == '__main__':
 
-    if sys.version_info < (3, 5, 10):
-        sys.stderr.write('You need python 3.5 od later. \n')
+    if sys.version_info < (3, 5, 0):
+        sys.stderr.write('You need python 3.5 od later.\n')
         sys.exit(1)
 
 #try:
