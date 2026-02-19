@@ -1,0 +1,39 @@
+const int red = 8;
+const int yel = 9;
+const int grn = 10;
+const int ButtonPIN = 7;
+
+
+int ledState = HIGH;
+int buttonstate;
+int lastButtonState =LOW;
+
+unsigned long lastDeboncedTime = 0;
+unsigned long debouncedDelay = 50;
+
+void setup() {
+
+  for (int i = 8; i < 11; i++){
+    pinMode(i, OUTPUT);
+    digitalWrite(i, LOW);
+
+  pinMode(buttonpIN , INPUT);
+  digitalWrite(red, HIGH);
+  
+  }
+  
+}
+
+void loop() {
+
+int state = digitalRed(buttonPIN);
+
+if (state != lastButtonState) {
+  lastDebouncedTime = millis();
+}
+
+
+
+
+
+
